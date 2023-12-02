@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{main::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-success text-center text-white fs-4">Profile page</div>
+                    <th:block th:if="${session.msg}">
+                        <p class="text-center text-warning fs-4">[[${session.msg}]]</p>
+                        <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                    </th:block>
+                    <div class="card-body">
+                        <form action="updateProfile" method="post">
+                            <div class="mb-3">
+                                <label>ID</label>
+                                <input readonly text="text" name="id" class="form-control" th:value="${loggedEmployee.id}">
+                            </div>
+                            <div class="mb-3">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" class="form-control" th:value="${loggedEmployee.firstName}">
+                            </div>
+                            <div class="mb-3">
+                                <label>Last name</label>
+                                <input type="text" name="lastName" class="form-control" th:value="${loggedEmployee.lastName}">
+                            </div>
+                            <div class="mb-3">
+                                <label>E-mail</label>
+                                <input type="text" name="email" class="form-control" th:value="${loggedEmployee.email}">
+                            </div>
+                            <button class="btn btn-success col-md-12" >Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{main::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-success text-center text-white fs-4">Register page</div>
+
+                    <th:block th:if="${session.msg}">
+                        <p class="text-center text-warning fs-4">[[${session.msg}]]</p>
+                        <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                    </th:block>
+
+                    <div class="card-body">
+                        <form action="createUser" method="post">
+                            <div class="mb-3">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Last name</label>
+                                <input type="text" name="lastName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>E-mail</label>
+                                <input type="text" name="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" id="password">
+                            </div>
+                            <button class="btn btn-success col-md-12">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+</body>
+</html>

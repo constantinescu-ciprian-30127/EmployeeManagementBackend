@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{main::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-success text-center text-white fs-4">Create department page</div>
+
+                    <th:block th:if="${session.msg}">
+                        <p class="text-center text-warning fs-4">[[${session.msg}]]</p>
+                        <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                    </th:block>
+
+                    <div class="card-body">
+                        <form action="/admin/department/createDepartment" method="post">
+                            <div class="mb-3">
+                                <label>Department Name</label>
+                                <input type="text" name="departmentName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Parent ID</label>
+                                <input type="text" name="parentID" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Manager ID</label>
+                                <input type="text" name="managerID" class="form-control">
+                            </div>
+                            <button class="btn btn-success col-md-12">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+</body>
+</html>
