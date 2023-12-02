@@ -83,7 +83,7 @@ public class EmployeeController {
         employee.setEmail(email);
         Employee updateEmployeeData = (Employee)this.employeeRepository.save(employee);
         if (updateEmployeeData != null) {
-            httpSession.setAttribute("msg", "Update");
+            httpSession.setAttribute("msg", "Updated");
         } else {
             httpSession.setAttribute("msg", "Something went wrong");
         }
